@@ -4,10 +4,14 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\model\slider;
 
 class IndexController extends Controller
 {
     public function index(Request $request) {
+
+        $objSlider = new slider();
+        $data['sliders'] = $objSlider->getSlider($request);
 
         $data['title'] = "Kulpkala | Index";
         $data['css'] = array();
