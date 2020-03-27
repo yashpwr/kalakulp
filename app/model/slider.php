@@ -34,5 +34,29 @@ class slider extends Model
         return $result;
     }
 
+    public function get($request, $id) {
+        $result = DB::table("slider")
+                ->where('id', $id)
+                ->get();
+        return $result;
+    }
+
+    public function editSlider($request, $id) {
+
+        $objSlider = new slider();
+        $objSlider = slider::find($id);
+        if ($request->file()) {
+            $image = $request->file('img');
+            $name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('Uploads/Slider/');
+            $image->move($destinationPath, $name);
+            $objSlider->img = $name;
+        }
+        $objSlider->title = $request->input('title');
+        $objSlider->description = $request->input('description');
+        $objSlider->updated_at = date("Y-m-d h:i:s");
+        return $objSlider->save();
+    }
+
     
 }

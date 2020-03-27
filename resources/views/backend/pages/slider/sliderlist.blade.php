@@ -33,7 +33,7 @@
                                                 <td><img src="{{asset('public/Uploads/Slider/'.$slider->img )}}"  alt="Slider-img" title="Slider-img" class="rounded mr-3" height="50"></td>
                                                 <td>{{$slider->title}}</td>
                                                 <td>{{$slider->description}}</td>
-                                                <td><a href=""><button class="btn btn-xs btn-info"><i class="fa fa-edit"></i></button></a></td>
+                                                <td><a href="{{ route('updateslider', $slider->id) }}"><button class="btn btn-xs btn-info"><i class="fa fa-edit"></i></button></a></td>
                                                 <td><a href="" data-toggle="modal" data-target="#deletemodel" class="btn btn-xs btn-danger deleteSlider"    ><i class="fa fa-trash"></i></a></td>
                                             </tr>
                                             @endforeach                                            

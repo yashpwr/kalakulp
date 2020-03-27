@@ -45,4 +45,25 @@ class SliderController extends Controller
 
         return view('backend.pages.slider.addslider', $data);
     }
+
+    public function updateslider(Request $request, $id) {
+
+        if ($request->isMethod('post')) {
+
+            $objSlider = new slider();
+            $result = $objSlider->editSlider($request, $id);
+        }
+
+        $objSlider = new slider();
+        $data['sliders'] = $objSlider->get($request, $id);
+
+        $data['title'] = "Kulpkala | Add-Slider";
+        $data['css'] = array();
+        $data['plugincss'] = array();
+        $data['pluginjs'] = array("parsleyjs/parsley.min.js");
+        $data['js'] = array("pages/form-validation.init.js");
+        $data['funinit'] = array();
+
+        return view('backend.pages.slider.upateslider', $data);
+    }
 }
