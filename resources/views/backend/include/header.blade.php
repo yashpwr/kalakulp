@@ -24,6 +24,15 @@
         @endforeach
         @endif
 
+        @if (!empty($plugincss)) 
+        @foreach ($plugincss as $value) 
+        @if(!empty($value))
+
+        <link rel="stylesheet" href="{{ asset('public/backend/sass/'.$value) }}">
+        @endif
+        @endforeach
+        @endif
+
         <style>
         .has-error{
                 border-color: red !important;

@@ -6,19 +6,17 @@
         <script src="{{asset('public/backend//libs/simplebar/simplebar.min.js')}}"></script>
         <script src="{{asset('public/backend//libs/node-waves/waves.min.js')}}"></script>
         <!-- apexcharts -->
-        <script src="{{asset('public/backend/libs/apexcharts/apexcharts.min.js')}}"></script>
-        <script src="{{asset('public/backend/js/pages/dashboard.init.js')}}"></script>
         <script src="{{asset('public/backend/js/app.js')}}"></script>
 
         @if (!empty($pluginjs)) 
         @foreach ($pluginjs as $value) 
-        <script src="{{ asset('public/backend/assets/'.$value) }}" type="text/javascript"></script>
+        <script src="{{ asset('public/backend/libs/'.$value) }}" type="text/javascript"></script>
         @endforeach
         @endif
 
         @if (!empty($js)) 
         @foreach ($js as $value) 
-        <script src="{{ asset('public/backend/libs/'.$value) }}" type="text/javascript"></script>
+        <script src="{{ asset('public/backend/js/'.$value) }}" type="text/javascript"></script>
         @endforeach
         @endif
 
