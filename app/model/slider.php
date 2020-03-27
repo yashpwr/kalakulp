@@ -3,7 +3,7 @@
 namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class slider extends Model
 {
@@ -26,6 +26,12 @@ class slider extends Model
         } else {
             return false;
         }
+    }
+
+    public function getSlider($request) {
+        $result = DB::table("slider")
+                ->get();
+        return $result;
     }
 
     

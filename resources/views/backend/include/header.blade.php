@@ -28,7 +28,7 @@
         @foreach ($plugincss as $value) 
         @if(!empty($value))
 
-        <link rel="stylesheet" href="{{ asset('public/backend/sass/'.$value) }}">
+        <link rel="stylesheet" href="{{ asset('public/backend/libs/'.$value) }}">
         @endif
         @endforeach
         @endif
