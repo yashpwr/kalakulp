@@ -9,3 +9,26 @@
         <script src="{{asset('public/backend/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('public/backend/js/pages/dashboard.init.js')}}"></script>
         <script src="{{asset('public/backend/js/app.js')}}"></script>
+
+        @if (!empty($pluginjs)) 
+        @foreach ($pluginjs as $value) 
+        <script src="{{ asset('public/backend/assets/'.$value) }}" type="text/javascript"></script>
+        @endforeach
+        @endif
+
+        @if (!empty($js)) 
+        @foreach ($js as $value) 
+        <script src="{{ asset('public/backend/libs/'.$value) }}" type="text/javascript"></script>
+        @endforeach
+        @endif
+
+        <script>
+                jQuery(document).ready(function () {
+
+                @if (!empty($funinit))
+                @foreach ($funinit as $value)
+                        {{$value}}
+                @endforeach
+                @endif
+                });
+        </script>

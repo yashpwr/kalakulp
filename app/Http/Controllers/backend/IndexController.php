@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function index(Request $request) {
+        $data['title'] = "Kulpkala | Admin Index";
+        $data['css'] = array();
+        $data['pluginjs'] = array();
+        $data['js'] = array();
+        $data['funinit'] = array();
 
-        return view('backend.pages.index');
+        return view('backend.pages.index', $data);
     }
 }
