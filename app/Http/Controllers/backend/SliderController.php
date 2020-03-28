@@ -25,7 +25,7 @@ class SliderController extends Controller
                         "datatables.net-responsive/js/dataTables.responsive.min.js",
                         "datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js");
         $data['js'] = array("slider.js");
-        $data['funinit'] = array();
+        $data['funinit'] = array("Slider.init()");
 
         return view('backend.pages.slider.sliderlist', $data);
     }
@@ -65,5 +65,27 @@ class SliderController extends Controller
         $data['funinit'] = array();
 
         return view('backend.pages.slider.upateslider', $data);
+    }
+
+    public function datatableajaxAction(Request $request) {
+        $action = $request->input('action');
+        switch ($action) {
+
+            case 'deleteSlider':
+                $data = $request->input('data');
+
+                $objSlider = new slider();
+                $res = $objSlider->deleteSlider($data);
+                if ($res) {
+                    $return['status'] = 'success';
+                    $return['message'] = 'Record Deleted successfully.';
+                    $return['redirect'] = route('sliderlist');
+                } else {
+                    $return['status'] = 'error';
+                    $return['message'] = 'Record Not Deleted.';
+                }
+                echo json_encode($return);
+                break;
+        }
     }
 }

@@ -40,6 +40,12 @@ class slider extends Model
                 ->get();
         return $result;
     }
+    public function deleteSlider($data) {
+        $result = DB::table("slider")
+                ->where('id', $data['id'])
+                ->delete();
+        return $result;
+    }
 
     public function editSlider($request, $id) {
 

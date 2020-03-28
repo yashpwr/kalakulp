@@ -8,6 +8,8 @@ Route::match(['get', 'post'], 'sliderlist', ['as' => 'sliderlist', 'uses' => 'ba
 Route::match(['get', 'post'], 'addslider', ['as' => 'addslider', 'uses' => 'backend\SliderController@addslider']);
 Route::match(['get', 'post'], 'updateslider/{id}', ['as' => 'updateslider', 'uses' => 'backend\SliderController@updateslider']);
 
+Route::match(['get', 'post'], 'slider-datatable-ajaxAction', ['as' => 'slider-datatable-ajaxAction', 'uses' => 'backend\SliderController@datatableajaxAction']);
+
 
 
 //frontend

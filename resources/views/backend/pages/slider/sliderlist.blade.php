@@ -17,7 +17,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <table id="sliderlist" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                            <thead>
+                                            <thead>@csrf
                                             <tr>
                                                 <th>Image</th>
                                                 <th>Title</th>
@@ -34,7 +34,7 @@
                                                 <td>{{$slider->title}}</td>
                                                 <td>{{$slider->description}}</td>
                                                 <td><a href="{{ route('updateslider', $slider->id) }}"><button class="btn btn-xs btn-info"><i class="fa fa-edit"></i></button></a></td>
-                                                <td><a href="" data-toggle="modal" data-target="#deletemodel" class="btn btn-xs btn-danger deleteSlider"    ><i class="fa fa-trash"></i></a></td>
+                                                <td><a href="" data-toggle="modal" data-target="#deletemodel" class="btn btn-xs btn-danger deleteSlider" data-id="{{$slider->id}}"><i class="fa fa-trash"></i></a></td>
                                             </tr>
                                             @endforeach                                            
                                             </tbody>
