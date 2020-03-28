@@ -10,7 +10,10 @@ Route::match(['get', 'post'], 'updateslider/{id}', ['as' => 'updateslider', 'use
 
 Route::match(['get', 'post'], 'slider-datatable-ajaxAction', ['as' => 'slider-datatable-ajaxAction', 'uses' => 'backend\SliderController@datatableajaxAction']);
 
-
+Route::match(['get', 'post'], 'categorylist', ['as' => 'categorylist', 'uses' => 'backend\CategoryController@categorylist']);
+Route::match(['get', 'post'], 'addcategory', ['as' => 'addcategory', 'uses' => 'backend\CategoryController@addcategory']);
+Route::match(['get', 'post'], 'updatecategory/{id}', ['as' => 'updatecategory', 'uses' => 'backend\CategoryController@updatecategory']);
+Route::match(['get', 'post'], 'category-datatable-ajaxAction', ['as' => 'category-datatable-ajaxAction', 'uses' => 'backend\CategoryController@datatableajaxAction']);
 
 //frontend
 Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\IndexController@index']);
