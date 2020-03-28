@@ -13,7 +13,7 @@ class IndexController extends Controller
         $objSlider = new slider();
         $data['sliders'] = $objSlider->getSlider($request);
 
-        $data['title'] = "Kulpkala | Index";
+        $data['title'] = "kalakulp | Index";
         $data['css'] = array();
         $data['pluginjs'] = array();
         $data['js'] = array();

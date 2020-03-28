@@ -13,7 +13,7 @@ class CategoryController extends Controller
         $objCategory = new category();
         $data['categories'] = $objCategory->getCategory($request);
         
-        $data['title'] = "CrudAjax || Category-List";
+        $data['title'] = "Kalakulp | Category-List";
         $data['css'] = array();
         $data['plugincss'] = array("datatables.net-bs4/css/dataTables.bootstrap4.min.css",
         "datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css",
