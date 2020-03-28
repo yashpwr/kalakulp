@@ -1,3 +1,7 @@
+@php
+$currRoute = Route::current()->getName();
+@endphp
+
 <div class="vertical-menu">
     <div data-simplebar class="h-100">
         <!--- Sidemenu -->
@@ -12,8 +16,8 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <li class="{{ $currRoute == 'sliderlist' || $currRoute == 'addslider' || $currRoute == 'updateslider'  ? 'active mm-active' : '' }}">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect {{ $currRoute == 'sliderlist' || $currRoute == 'addslider' || $currRoute == 'updateslider'  ? 'active mm-active' : '' }}">
                         <i class="bx bx-layout"></i>
                         <span>Slider</span>
                     </a>
