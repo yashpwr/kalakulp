@@ -54,11 +54,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <!-- end card -->
-                            </div> <!-- end col -->
-
-                    </div> <!-- container-fluid -->
+                            </div> 
+                    </div> 
                 </div>
-
-
 @endsection

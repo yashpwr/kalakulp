@@ -34,14 +34,25 @@ class SliderController extends Controller
         if ($request->isMethod('post')) {
             $objSlider = new slider();
             $result = $objSlider->addslider($request);
+        
+            if ($result) {
+                $return['status'] = 'success';
+                $return['message'] = 'Record Added successfully.';
+                $return['redirect'] = route('sliderlist');
+            } else {
+                $return['status'] = 'error';
+                $return['message'] = 'Record Not Added.';
+            }
+            echo json_encode($return);
+            exit;
         }
 
         $data['title'] = "Kulpkala | Add Sldier";
         $data['css'] = array();
         $data['plugincss'] = array();
         $data['pluginjs'] = array("parsleyjs/parsley.min.js");
-        $data['js'] = array("pages/form-validation.init.js");
-        $data['funinit'] = array();
+        $data['js'] = array("pages/form-validation.init.js","slider.js");
+        $data['funinit'] = array("Slider.addsliderr()");
 
         return view('backend.pages.slider.addslider', $data);
     }
@@ -52,6 +63,17 @@ class SliderController extends Controller
 
             $objSlider = new slider();
             $result = $objSlider->editSlider($request, $id);
+
+            if ($result) {
+                $return['status'] = 'success';
+                $return['message'] = 'Record Updated successfully.';
+                $return['redirect'] = route('sliderlist');
+            } else {
+                $return['status'] = 'error';
+                $return['message'] = 'Record Not Updated.';
+            }
+            echo json_encode($return);
+            exit;
         }
 
         $objSlider = new slider();
@@ -61,8 +83,8 @@ class SliderController extends Controller
         $data['css'] = array();
         $data['plugincss'] = array();
         $data['pluginjs'] = array("parsleyjs/parsley.min.js");
-        $data['js'] = array("pages/form-validation.init.js");
-        $data['funinit'] = array();
+        $data['js'] = array("pages/form-validation.init.js","slider.js");
+        $data['funinit'] = array("Slider.addsliderr()");
 
         return view('backend.pages.slider.upateslider', $data);
     }
@@ -76,6 +98,7 @@ class SliderController extends Controller
 
                 $objSlider = new slider();
                 $res = $objSlider->deleteSlider($data);
+
                 if ($res) {
                     $return['status'] = 'success';
                     $return['message'] = 'Record Deleted successfully.';

@@ -3,8 +3,7 @@ var Slider = function () {
     var sliderlist = function () {
 
         $(document).ready(function(){
-            $("#sliderlist").DataTable().buttons().container().appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)")
-            });
+            $("#sliderlist").DataTable().buttons().container().appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)")});
 
             $('body').on("click", ".deleteSlider", function () {
                 var id = $(this).attr("data-id");
@@ -12,7 +11,6 @@ var Slider = function () {
                     $('.yes-sure:visible').attr('data-id', id);
                 }, 500);
             });
-
 
             $('body').on('click', '.yes-sure', function () {
             var id = $(this).attr('data-id');
@@ -28,12 +26,24 @@ var Slider = function () {
                     handleAjaxResponse(data);
                 }
             });
+        });     
+    }
+    var addslider = function () {
+        var form = $('#addSlider');
+        var rules = {
+            title: {required: true},
+            description: {required: true}
+        };
+        handleFormValidate(form, rules, function (form) {
+            handleAjaxFormSubmit(form, true);
         });
-
     }
     return {
         init: function () {
             sliderlist();
         },
+        addsliderr: function (){
+            addslider();
+        }
     }
 }();

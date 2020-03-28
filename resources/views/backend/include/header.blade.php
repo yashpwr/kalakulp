@@ -11,6 +11,7 @@
         <link href="{{asset('public/backend/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
         <link href="{{asset('public/backend/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('public/backend/css/toastr.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{asset('public/backend/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
         <script>var baseurl = "{{ asset('/') }}";</script>
@@ -37,6 +38,5 @@
         .has-error{
                 border-color: red !important;
         }
-        
         </style>
 </head>
