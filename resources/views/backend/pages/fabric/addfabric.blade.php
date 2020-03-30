@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-0 font-size-18">Form Repeater</h4>
+                    <h4 class="mb-0 font-size-18">Add fabric</h4>
                 </div>
             </div>
         </div>
@@ -58,15 +58,17 @@
                                         <div class="form-group control-group">
                                             <label>Fabric Image :</label>
                                             <div data-repeater-item class="inner mb-3 row ">
-                                                <div class="col-md-12 col-8">
+                                                <div class="col-md-10 col-8">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="img" name="img[]">
+                                                        <input type="file" class="custom-file-input" id="img" name="img[]" required>
                                                         <label class="custom-file-label" for="img">Choose file</label>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-2 col-4">
+                                                <input data-repeater-create type="button" class="btn btn-success" value="Add Iamge" />
+                                                </div>
                                             </div>
                                         </div>
-                                        <input data-repeater-create type="button" class="btn btn-success" value="Add Iamge" />
                                     </div>
 
                                     <div class="inner-repeater mb-4 clone" style="display: none">
@@ -74,7 +76,7 @@
                                             <div data-repeater-item class="inner mb-3 row ">
                                                 <div class="col-md-10 col-8">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="img" name="img[]">
+                                                        <input type="file" class="custom-file-input" id="img" name="img[]" required>
                                                         <label class="custom-file-label" for="img">Choose file</label>
                                                     </div>
                                                 </div>
@@ -84,7 +86,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>

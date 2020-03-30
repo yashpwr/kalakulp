@@ -40,6 +40,7 @@ var Fabric = function () {
             quantity: {required: true},
             img: {required: true},
         };
+        
         handleFormValidate(form, rules, function (form) {
             handleAjaxFormSubmit(form, true);
         });

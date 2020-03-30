@@ -38,8 +38,8 @@ $currRoute = Route::current()->getName();
                     </ul>
                 </li>
 
-                <li class="{{ $currRoute == 'FabricList' || $currRoute == 'addfabric' || $currRoute == 'updatefabric'  ? 'active mm-active' : '' }}">
-                    <a href="javascript: void(0);" class="has-arrow waves-effect {{ $currRoute == 'FabricList' || $currRoute == 'addfabric' || $currRoute == 'updatefabric'  ? 'active mm-active' : '' }}">
+                <li class="{{ $currRoute == 'FabricList' || $currRoute == 'addfabric' || $currRoute == 'updateFabric'  ? 'active mm-active' : '' }}">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect {{ $currRoute == 'FabricList' || $currRoute == 'addfabric' || $currRoute == 'updateFabric'  ? 'active mm-active' : '' }}">
                         <i class="bx bx-layout"></i>
                         <span>Fabrics</span>
                     </a>
