@@ -15,7 +15,7 @@ Route::match(['get', 'post'], 'addcategory', ['as' => 'addcategory', 'uses' => '
 Route::match(['get', 'post'], 'updatecategory/{id}', ['as' => 'updatecategory', 'uses' => 'backend\CategoryController@updatecategory']);
 Route::match(['get', 'post'], 'category-datatable-ajaxAction', ['as' => 'category-datatable-ajaxAction', 'uses' => 'backend\CategoryController@datatableajaxAction']);
 
-Route::match(['get', 'post'], 'fabricList', ['as' => 'fabricList', 'uses' => 'backend\FabricController@fabricList']);
+Route::match(['get', 'post'], 'FabricList', ['as' => 'FabricList', 'uses' => 'backend\FabricController@FabricList']);
 Route::match(['get', 'post'], 'addfabric', ['as' => 'addfabric', 'uses' => 'backend\FabricController@addfabric']);
 Route::match(['get', 'post'], 'updateFabric/{id}', ['as' => 'updateFabric', 'uses' => 'backend\FabricController@updateFabric']);
 Route::match(['get', 'post'], 'fabric-datatable-ajaxAction', ['as' => 'fabric-datatable-ajaxAction', 'uses' => 'backend\FabricController@datatableajaxAction']);

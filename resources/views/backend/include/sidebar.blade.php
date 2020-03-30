@@ -37,6 +37,17 @@ $currRoute = Route::current()->getName();
                         <li><a href="{{route('addcategory')}}">Add Category</a></li>
                     </ul>
                 </li>
+
+                <li class="{{ $currRoute == 'FabricList' || $currRoute == 'addfabric' || $currRoute == 'updatefabric'  ? 'active mm-active' : '' }}">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect {{ $currRoute == 'FabricList' || $currRoute == 'addfabric' || $currRoute == 'updatefabric'  ? 'active mm-active' : '' }}">
+                        <i class="bx bx-layout"></i>
+                        <span>Fabrics</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('FabricList')}}">Fabric List</a></li>
+                        <li><a href="{{route('addfabric')}}">Add Fabric</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

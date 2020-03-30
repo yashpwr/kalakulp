@@ -28,19 +28,30 @@ class fabric extends Model
 
             $result = $objFabric->save();
             $id = $objFabric->id;
+
             if ($result) {
-            foreach($request->file('img') as $image)
+                $d = $request->file('img');
+                for ($i = 0; $i < count($d); $i++) 
                 {
                     $objImage = new image();
-                    $name = time() . '.' . $image->getClientOriginalExtension();
+                    $da = substr(str_shuffle('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz'), 0, 6);
+
+                    $name = time() . $da . '.' . $d[$i]->getClientOriginalExtension();
                     $destinationPath = public_path('Uploads/Fabric/');
-                    $image->move($destinationPath, $name);
+                    $d[$i]->move($destinationPath, $name);
                     $objImage->img_name = $name;
                     $objImage->post_id = $id;
                     $objImage->img_type = 'fabric';
-                    $objImage->save();
+                    $result = $objImage->save();
                 }
             }
-       
-}
-}
+            return $result;
+        }
+
+        public function getFabric($request) {
+            $result = DB::table("fabric")
+                    ->get();
+            return $result;
+        }
+        
+    }
