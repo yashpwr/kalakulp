@@ -1,6 +1,9 @@
 @extends('backend.layout.app')
 @section('content')
 
+@foreach($fabrics as $fabric)
+@endforeach
+
 <div class="page-content">
     <div class="container-fluid">
 
@@ -95,5 +98,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

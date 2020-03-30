@@ -35,14 +35,74 @@ class FabricController extends Controller
         if ($request->isMethod('post')) {
             $objFabric = new fabric();
             $result = $objFabric->addFabric($request);
+            if ($result) {
+                $return['status'] = 'success';
+                $return['message'] = 'Fabric Added successfully.';
+                $return['redirect'] = route('FabricList');
+            } else {
+                $return['status'] = 'error';
+                $return['message'] = 'Fabric Not Added.';
+            }
+            echo json_encode($return);
+            exit;
         }
         $data['title'] = "Kulpkala | Add Fabric";
         $data['css'] = array();
         $data['plugincss'] = array();
         $data['pluginjs'] = array("jquery.repeater/jquery.repeater.min.js");
-        $data['js'] = array("pages/form-repeater.int.js");
-        $data['funinit'] = array();
+        $data['js'] = array("pages/form-repeater.int.js", "fabric.js");
+        $data['funinit'] = array('Fabric.addFab();');
 
         return view('backend.pages.fabric.addfabric', $data);
+    }
+
+    public function updateFabric(Request $request, $id) {
+
+        $objFabric = new fabric();
+        $data['fabrics'] = $objFabric->getFabric($request, $id);
+
+        if ($request->isMethod('post')) {
+            $objFabric = new fabric();
+            $result = $objFabric->updateFabric($request, $id);
+            if ($result) {
+                $return['status'] = 'success';
+                $return['message'] = 'Fabric Updated.';
+                $return['redirect'] = route('FabricList');
+            } else {
+                $return['status'] = 'error';
+                $return['message'] = 'Fabric Not updated.';
+            }
+            echo json_encode($return);
+            exit;
+        }
+
+        $data['title'] = "Kalakulp | Update Fabric";
+        $data['css'] = array();
+        $data['plugincss'] = array();
+        $data['pluginjs'] = array("jquery.repeater/jquery.repeater.min.js");
+        $data['js'] = array("pages/form-repeater.int.js", "fabric.js");
+        $data['funinit'] = array('Fabric.addFab();');
+
+        return view('backend.pages.fabric.updatefabric', $data);
+    }
+
+    public function datatableajaxAction(Request $request) {
+        $action = $request->input('action');
+        switch ($action) {
+            case 'deleteFabric':
+                $data = $request->input('data');
+                $objFabric = new fabric();
+                $res = $objFabric->deleteFabric($data);
+                if ($res) {
+                    $return['status'] = 'success';
+                    $return['message'] = 'Fabric Deleted successfully.';
+                    $return['redirect'] = route('FabricList');
+                } else {
+                    $return['status'] = 'error';
+                    $return['message'] = 'Fabric Not Deleted.';
+                }
+                echo json_encode($return);
+                break;
+        }
     }
 }

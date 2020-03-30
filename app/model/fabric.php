@@ -35,7 +35,6 @@ class fabric extends Model
                 {
                     $objImage = new image();
                     $da = substr(str_shuffle('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz'), 0, 6);
-
                     $name = time() . $da . '.' . $d[$i]->getClientOriginalExtension();
                     $destinationPath = public_path('Uploads/Fabric/');
                     $d[$i]->move($destinationPath, $name);
@@ -51,6 +50,13 @@ class fabric extends Model
         public function getFabric($request) {
             $result = DB::table("fabric")
                     ->get();
+            return $result;
+        }
+
+        public function deleteFabric($data) {
+            $result = DB::table("fabric")
+                    ->where('id', $data['id'])
+                    ->delete();
             return $result;
         }
         
