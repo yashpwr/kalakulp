@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('clear', function () {
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode1 = Artisan::call('route:clear');
+    $exitCode2 = Artisan::call('config:clear');
+    $exitCode3 = Artisan::call('view:clear');
+    return '<h1>cache route config view cleared</h1>';
+});
+
 //backend
 Route::match(['get', 'post'], 'admin', ['as' => 'admin', 'uses' => 'backend\IndexController@index']);
 
