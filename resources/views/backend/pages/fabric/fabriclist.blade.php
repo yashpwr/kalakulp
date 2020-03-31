@@ -3,7 +3,6 @@
 
 <div class="page-content">
                     <div class="container-fluid">
-
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
@@ -32,7 +31,6 @@
                                                 <th>Delete</th>
                                             </tr>
                                             </thead>
-
                                             <tbody>
                                             @foreach($fabrics as $fabric)
                                             <tr>
@@ -44,7 +42,7 @@
                                                 <td>{{$fabric->feel}}</td>
                                                 <td>{{$fabric->price}}</td>
                                                 <td>{{$fabric->quantity}}</td>
-                                                <td>{{$fabric->stock}}</td>
+                                                <td>{{ $fabric->stock == 'in_stock' ? "In Stock" : 'Out of Stock' }}</td>
                                                 <td><a href="{{ route('updateFabric', $fabric->id) }}"><button class="btn btn-xs btn-info"><i class="fa fa-edit"></i></button></a></td>
                                                 <td><a href="" data-toggle="modal" data-target="#deletemodel" class="btn btn-xs btn-danger deleteFabric" data-id="{{$fabric->id}}"><i class="fa fa-trash"></i></a></td>
                                             </tr>
@@ -57,5 +55,4 @@
                         </div> 
                     </div> 
                 </div>
-
 @endsection

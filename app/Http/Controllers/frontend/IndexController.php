@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\model\fabric;
 use Illuminate\Http\Request;
 use App\model\slider;
+use App\model\Image;
 
 class IndexController extends Controller
 {
@@ -12,6 +14,12 @@ class IndexController extends Controller
 
         $objSlider = new slider();
         $data['sliders'] = $objSlider->getSlider($request);
+
+        $objFabric = new fabric();
+        $data['fabrics'] = $objFabric->getFabric($request);
+
+        $objImage = new Image();
+        $data['images'] = $objImage->getImage($request);
 
         $data['title'] = "kalakulp | Index";
         $data['css'] = array();

@@ -15,4 +15,11 @@ class image extends Model
                 ->delete();
         return $result;
     }
+
+    public function getImage($request) {
+        $result = DB::table("image")
+                //->limit(8)
+                ->get();
+        return $result;
+    }
 }
