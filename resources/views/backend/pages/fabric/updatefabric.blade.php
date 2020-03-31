@@ -3,7 +3,6 @@
 
 @foreach($fabrics as $fabric)
 @endforeach
-
 <div class="page-content">
     <div class="container-fluid">
 
@@ -56,13 +55,40 @@
                                         <label for="quantity">Quantity :</label>
                                         <input type="text" class="form-control" value="{{$fabric->quantity}}" name="quantity" id="quantity">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="quantity">Quantity :</label>
+                                                <select class="form-control" name="stock">
+                                                    <option value="in_stock" {{ $fabric->stock == 'in_stock' ? "selected" : '' }}>In Stoke</option>
+                                                    <option value="stock_out" {{ ($fabric->stock == 'stock_out' ? "selected" : '') }}>Out of Stoke</option>
+                                                </select>
+                                    </div>
+                                    
+                                    <div class="row">
+                                    @foreach($images as $image)
+                                    <div class="col-lg-3 record">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="product-img position-relative">
+                                                    <div class="avatar-sm product-ribbon">
+                                                        <a href="javascript:void(0)"><span class="avatar-title rounded-circle  bg-primary SingleFabDelete" data-id="{{$image->id}}">
+                                                        
+                                                        </span></a>
+                                                    </div>
+                                                    <img src="{{asset('public/Uploads/Fabric/'.$image->img_name)}}" alt="" class="img-fluid mx-auto d-block">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                                    
                                     <div class="inner-repeater mb-4 increment">
                                         <div class="form-group control-group">
                                             <label>Fabric Image :</label>
                                             <div data-repeater-item class="inner mb-3 row ">
                                                 <div class="col-md-10 col-8">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="img" name="img[]" required>
+                                                        <input type="file" class="custom-file-input" id="img" name="img[]">
                                                         <label class="custom-file-label" for="img">Choose file</label>
                                                     </div>
                                                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\model\fabric;
+use App\model\image;
 use Illuminate\Http\Request;
 
 class FabricController extends Controller
@@ -59,7 +60,10 @@ class FabricController extends Controller
     public function updateFabric(Request $request, $id) {
 
         $objFabric = new fabric();
-        $data['fabrics'] = $objFabric->getFabric($request, $id);
+        $data['fabrics'] = $objFabric->getFab($request, $id);
+
+        $objImage = new fabric();
+        $data['images'] = $objImage->getImage($request, $id);
 
         if ($request->isMethod('post')) {
             $objFabric = new fabric();
@@ -81,7 +85,7 @@ class FabricController extends Controller
         $data['plugincss'] = array();
         $data['pluginjs'] = array("jquery.repeater/jquery.repeater.min.js");
         $data['js'] = array("pages/form-repeater.int.js", "fabric.js");
-        $data['funinit'] = array('Fabric.addFab();');
+        $data['funinit'] = array('Fabric.addFab();', 'Fabric.singleDelete();');
 
         return view('backend.pages.fabric.updatefabric', $data);
     }
@@ -103,6 +107,21 @@ class FabricController extends Controller
                 }
                 echo json_encode($return);
                 break;
+
+                case 'SingleFabDelete':
+                    $data = $request->input('data');
+                    $objImage = new image();
+                    $res = $objImage->deleteImage($data);
+                    if ($res) {
+                        $return['status'] = 'success';
+                        $return['message'] = 'Image Deleted successfully.';
+                        //$return['redirect'] = route('FabricList');
+                    } else {
+                        $return['status'] = 'error';
+                        $return['message'] = 'Image Not Deleted.';
+                    }
+                    echo json_encode($return);
+                    break;
         }
     }
 }

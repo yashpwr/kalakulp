@@ -27,6 +27,29 @@ var Fabric = function () {
             });
         });     
     }
+
+    var SingleFabDelete = function () {
+        
+            $('body').on('click', '.SingleFabDelete', function () {
+            var id = $(this).attr('data-id');
+            var data = {id: id, _token: $('#_token').val()};
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                url: baseurl + "fabric-datatable-ajaxAction",
+                data: {'action': 'SingleFabDelete', 'data': data},
+                success: function (data) {
+                    handleAjaxResponse(data);
+                }
+            });
+            $(this).parents(".record").animate("fast").animate({
+                opacity : "hide"
+            }, "slow");
+        });
+    }
+
     var addFabric = function () {
         var form = $('#addFabric');
         var rules = {
@@ -51,6 +74,9 @@ var Fabric = function () {
         },
         addFab: function (){
             addFabric();
+        },
+        singleDelete: function(){
+            SingleFabDelete();
         }
     }
 }();
