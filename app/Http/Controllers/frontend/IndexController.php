@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\model\fabric;
 use Illuminate\Http\Request;
 use App\model\slider;
-use App\model\Image;
+use App\model\image;
 
 class IndexController extends Controller
 {
@@ -18,7 +18,7 @@ class IndexController extends Controller
         $objFabric = new fabric();
         $data['fabrics'] = $objFabric->getFabric($request);
 
-        $objImage = new Image();
+        $objImage = new image();
         $data['images'] = $objImage->getImage($request);
 
         $data['title'] = "kalakulp | Index";

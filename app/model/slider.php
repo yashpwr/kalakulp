@@ -13,7 +13,7 @@ class slider extends Model
         if ($request->file()) {
             $image = $request->file('img');
             $name = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('uploads/Slider/');
+            $destinationPath = public_path('Uploads/Slider/');
             $image->move($destinationPath, $name);
 
             $objSlider = new slider();
